@@ -9,6 +9,8 @@
 # http://code.google.com/edu/languages/google-python-class/
 
 import re
+
+
 # Basic list exercises
 # Fill in the code for the functions below. main() is already set up
 # to call the functions with a few different inputs,
@@ -25,7 +27,15 @@ import re
 # Note: python does not have a ++ operator, but += works.
 def match_ends(words):
     """Your code goes here.  Edit this docstring."""
-    return
+    regex = r"((^.).*\2$)"
+    results = []
+    for word in words:
+        if len(word) < 2:
+            continue
+        found = re.findall(regex, word)
+        if found:
+            results.append(word)
+    return len(results)
 
 
 # B. front_x
@@ -35,9 +45,37 @@ def match_ends(words):
 # ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
+def bucket_sort_for_x(items):
+    buckets = [[], [], [], [], []]
+    for word in items:
+        if word[0] == "x":
+            buckets[0].append(word)
+            continue
+        if re.search(r"[a-f]", word[0]):
+            buckets[1].append(word)
+            continue
+        if re.search(r"[g-l]", word[0]):
+            buckets[2].append(word)
+            continue
+        if re.search(r"[m-r]", word[0]):
+            buckets[3].append(word)
+            continue
+        if re.search(r"[s-w]", word[0]):
+            buckets[4].append(word)
+            continue
+        if re.search(r"[y-z]", word[0]):
+            buckets[5].append(word)
+            continue
+    result = []
+    for bucket in buckets:
+        bucket.sort()
+        result += bucket
+    return result
+
+
 def front_x(words):
     """Your code goes here.  Edit this docstring."""
-    return
+    return bucket_sort_for_x(words)
 
 
 # C. sort_last
@@ -48,7 +86,7 @@ def front_x(words):
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
     """Your code goes here.  Edit this docstring."""
-    return
+    return sorted(tuples, key=lambda x: x[1])
 
 
 # Simple provided test() function used in main() to print
