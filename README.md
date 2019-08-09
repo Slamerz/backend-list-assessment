@@ -24,3 +24,4 @@ Feel free to edit the README.md (this very text itself) of this assignment and e
 
 As a reference, see this:
 [README Best Practices template](https://github.com/jehna/readme-best-practices/blob/master/README-default.md)
+[Github Markdown Cheat Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
