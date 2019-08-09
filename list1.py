@@ -26,7 +26,7 @@ import re
 # and last chars of the string are the same.
 # Note: python does not have a ++ operator, but += works.
 def match_ends(words):
-    """Your code goes here.  Edit this docstring."""
+    """Return all words that begin and end with the same character"""
     regex = r"((^.).*\2$)"
     results = []
     for word in words:
@@ -74,7 +74,7 @@ def bucket_sort_for_x(items):
 
 
 def front_x(words):
-    """Your code goes here.  Edit this docstring."""
+    """Sort the list alphabetically, with X starting first"""
     return bucket_sort_for_x(words)
 
 
@@ -85,7 +85,7 @@ def front_x(words):
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
-    """Your code goes here.  Edit this docstring."""
+    """Sort tuples by second value"""
     return sorted(tuples, key=lambda x: x[1])
 
 
